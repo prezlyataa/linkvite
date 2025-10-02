@@ -7,11 +7,11 @@ export default function InvitationPage() {
 
   // Тимчасові дані для різних запрошень
   // В майбутньому це буде завантажуватись з бази даних
-  const invitationData = {
-    bride: "Ольга",
-    groom: "Дмитро",
-    date: "27 вересня 2025",
-  };
+  // const invitationData = {
+  //   bride: "Ольга",
+  //   groom: "Дмитро",
+  //   date: "27 вересня 2025",
+  // };
 
   console.log("slug", slug);
 
