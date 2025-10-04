@@ -2,77 +2,61 @@
 import { useState } from "react";
 import { fontPrata } from "../../lib/fonts";
 
-function Logo({ names }: { names: string }) {
-  return (
-    <div className="flex flex-col items-center text-center space-y-1">
-      {/* Decorative flourish */}
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 100 20"
-        className="w-20 h-6 text-[#D4C5A5] ml-4" // додає відступ зліва
-        fill="currentColor"
-      >
-        <path d="M10 10c0-5 10-5 10 0s10 5 10 0 10-5 10 0 10 5 10 0 10-5 10 0" />
-      </svg>
+const Logo = ({ names }: { names: string }) => (
+  <div className="flex flex-col items-center text-center space-y-1">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 -5 90 30"
+      className="w-24 h-10 text-[#D4C5A5] transform translate-x-2"
+      fill="currentColor"
+    >
+      <path d="M10 10c0-5 10-5 10 0s10 5 10 0 10-5 10 0 10 5 10 0 10-5 10 0" />
+    </svg>
 
-      {/* Names */}
-      <span
-        className={`${fontPrata.className} text-md tracking-wide text-[#F5F5F5]`}
-        style={{ color: "#f5eee3" }}
-      >
-        {names}
-      </span>
+    <span
+      className={`${fontPrata.className} text-base tracking-wide text-[#efe8dc]`}
+    >
+      {names}
+    </span>
 
-      {/* Subtitle */}
-      <span className="text-gray-200 text-xs">We&apos;re getting married!</span>
-    </div>
-  );
-}
+    <span className="text-gray-200 text-xs">Ми одружуємось!</span>
+  </div>
+);
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { label: "Історія кохання", href: "#story" },
-    { label: "Деталі весілля", href: "#details" },
-    { label: "Програма дня", href: "#programs" },
+    { label: "Історія Кохання", href: "#story" },
+    { label: "Деталі Весілля", href: "#details" },
+    { label: "Програма Дня", href: "#program" },
     { label: "Дрес-код", href: "#dresscode" },
-    { label: "Підтвердження присутності", href: "#rsvp" },
+    { label: "Присутність", href: "#rsvp" },
   ];
 
   return (
     <>
-      {/* Header завжди зверху */}
+      {/* Fixed Header */}
       <header className="fixed top-0 left-0 w-full bg-[#37585c] z-50">
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
-          {/* Logo & Names */}
-          <div className="flex flex-col">
-            {/* <span
-              className={`${fontPrata.className} text-md tracking-wide`}
-              style={{ color: "#f5eee3" }}
-            >
-              Дмитро & Ілона
-            </span>
-            <span className="text-sm italic"></span> */}
-            <Logo names="Дмитро & Ілона" />
-          </div>
+          <Logo names="Дмитро & Ілона" />
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex space-x-8 font-light text-sm">
-            {menuItems.map((item) => (
+          <nav className="hidden md:flex text-[#f5eee3] space-x-8 font-light text-sm">
+            {menuItems.map(({ label, href }) => (
               <a
-                key={item.href}
-                href={item.href}
-                className={`${fontPrata.className} transition`}
-                style={{ color: "#f5eee3" }}
+                key={href}
+                href={href}
+                className={`${fontPrata.className} text-#efe8dc hover:text-[#d6cfbf] transition`}
               >
-                {item.label}
+                {label}
               </a>
             ))}
           </nav>
 
-          {/* Mobile Burger / X */}
+          {/* Mobile Burger */}
           <button
+            aria-label="Toggle menu"
             className="md:hidden flex flex-col justify-center items-center w-8 h-8 relative cursor-pointer z-50"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -81,43 +65,30 @@ export default function Header() {
                 className={`block w-6 h-0.5 bg-white transform transition duration-300 ${
                   isOpen ? "rotate-45 translate-y-1.5" : ""
                 }`}
-              ></span>
+              />
               <span
                 className={`block w-6 h-0.5 bg-white transition duration-300 ${
                   isOpen ? "opacity-0" : ""
                 }`}
-              ></span>
+              />
               <span
                 className={`block w-6 h-0.5 bg-white transform transition duration-300 ${
                   isOpen ? "-rotate-45 -translate-y-1.5" : ""
                 }`}
-              ></span>
+              />
             </div>
           </button>
         </div>
       </header>
 
-      {/* Fullscreen Mobile Menu */}
-      {/* Mobile Fullscreen Dropdown */}
+      {/* Mobile Fullscreen Menu */}
       {isOpen && (
-        <div className="fixed inset-0 bg-[#37585c] flex flex-col z-40">
-          {/* Top row with logo + close */}
+        <div className="md:hidden fixed inset-0 bg-[#37585c] flex flex-col z-40 animate-fade-in">
+          {/* Top row */}
           <div className="flex items-center justify-between px-6 py-4">
-            <div className="flex flex-col text-white">
-              <span
-                className={`${fontPrata.className} text-md tracking-wide`}
-                style={{ color: "#f5eee3" }}
-              >
-                JOHN & JANE
-              </span>
-              <span
-                className={`${fontPrata.className} text-sm italic text-gray-200`}
-                style={{ color: "#f5eee3" }}
-              >
-                We are getting married
-              </span>
-            </div>
+            <Logo names="Дмитро & Ілона" />
             <button
+              aria-label="Close menu"
               onClick={() => setIsOpen(false)}
               className="relative w-6 h-6 cursor-pointer"
             >
@@ -127,16 +98,15 @@ export default function Header() {
           </div>
 
           {/* Menu Items */}
-          <nav className="md:hidden flex flex-col items-center justify-center flex-1 space-y-4 text-white font-light text-sm">
-            {menuItems.map((item) => (
+          <nav className="flex flex-col items-center justify-center flex-1 space-y-6 text-[#f5eee3] font-light text-lg">
+            {menuItems.map(({ label, href }) => (
               <a
-                key={item.href}
-                href={item.href}
-                className={`${fontPrata} transition`}
+                key={href}
+                href={href}
                 onClick={() => setIsOpen(false)}
-                style={{ color: "#f5eee3" }}
+                className={`${fontPrata.className} text-[#efe8dc] hover:text-[#d6cfbf] transition`}
               >
-                {item.label}
+                {label}
               </a>
             ))}
           </nav>
