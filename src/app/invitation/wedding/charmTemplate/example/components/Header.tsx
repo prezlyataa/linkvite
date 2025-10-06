@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { fontPrata } from "../../lib/fonts";
+import { fontPrata } from "../../../../../../lib/fonts";
 
 const Logo = ({ names }: { names: string }) => (
   <div className="flex flex-col items-center text-center space-y-1">

@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../styles/global.css";
 
 export const metadata: Metadata = {
   title: "Mememto",
   description: "Запрошення онлайн",
+  icons: {
+    icon: "./tab-icon-letter.png",
+    shortcut: "./tab-icon-letter.png",
+  },
 };
 
 export default function RootLayout({
