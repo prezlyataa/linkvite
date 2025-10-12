@@ -2,12 +2,13 @@ import fs from "fs";
 import path from "path";
 import type { Metadata } from "next";
 import Header from "./components/Header";
+import Hero from "./components/Hero";
 import "../../../../../styles/global.css";
 
 async function getClientData() {
   const filePath = path.join(
     process.cwd(),
-    "src/app/invitation/wedding/charmTemplate/example/data.json"
+    "src/app/invitation/wedding/charm/example/data.json"
   );
   const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
   return data;
@@ -37,9 +38,12 @@ export default async function CharmTemplate() {
   return (
     <main>
       <Header />
-      {/* Потім передаєш дані в інші компоненти */}
-      {/* <Hero data={data.hero} /> */}
-      {/* <Countdown data={data.countdown} /> */}
+      <Hero
+        image={data.hero.image}
+        names={data.hero.names}
+        date={data.hero.date}
+        buttonText={data.hero.buttonText}
+      />
     </main>
   );
 }

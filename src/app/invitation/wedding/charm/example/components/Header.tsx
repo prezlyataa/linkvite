@@ -1,23 +1,24 @@
 "use client";
 import { useState } from "react";
-import { fontPrata } from "../../../../../../lib/fonts";
 
 const Logo = ({ names }: { names: string }) => (
   <div className="flex flex-col items-center text-center space-y-1">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 -5 90 30"
-      className="w-24 h-10 text-[#D4C5A5] transform translate-x-2"
-      fill="currentColor"
+      viewBox="0 0 240 60"
+      fill="none"
+      stroke="#D4C5A5"
+      strokeWidth="4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="w-24 h-8"
     >
-      <path d="M10 10c0-5 10-5 10 0s10 5 10 0 10-5 10 0 10 5 10 0 10-5 10 0" />
+      <path d="M10 40 C35 5, 65 5, 90 40 S145 75, 170 40 S205 5, 230 40" />
+      <path d="M50 25 Q45 18, 40 25 Q45 32, 50 25 Z" fill="#D4C5A5" />
+      <path d="M190 25 Q195 18, 200 25 Q195 32, 190 25 Z" fill="#D4C5A5" />
     </svg>
 
-    <span
-      className={`${fontPrata.className} text-base tracking-wide text-[#efe8dc]`}
-    >
-      {names}
-    </span>
+    <span className={`text-base tracking-wide text-[#efe8dc]`}>{names}</span>
 
     <span className="text-gray-200 text-xs">Ми одружуємось!</span>
   </div>
@@ -47,7 +48,7 @@ export default function Header() {
               <a
                 key={href}
                 href={href}
-                className={`${fontPrata.className} text-#efe8dc hover:text-[#d6cfbf] transition`}
+                className={`text-#efe8dc hover:text-[#d6cfbf] transition`}
               >
                 {label}
               </a>
@@ -104,7 +105,7 @@ export default function Header() {
                 key={href}
                 href={href}
                 onClick={() => setIsOpen(false)}
-                className={`${fontPrata.className} text-[#efe8dc] hover:text-[#d6cfbf] transition`}
+                className={`text-[#efe8dc] hover:text-[#d6cfbf] transition`}
               >
                 {label}
               </a>

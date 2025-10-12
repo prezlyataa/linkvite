@@ -12,7 +12,7 @@ export default async function GuestPage({
 
   const filePath = path.join(
     process.cwd(),
-    `src/app/invitation/wedding/charmTemplate/${clientId}/data.json`
+    `src/app/invitation/wedding/charm/${clientId}/data.json`
   );
 
   const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
@@ -43,7 +43,7 @@ export default async function GuestPage({
       <p className="mb-6 text-sm text-gray-200">{data.hero.date}</p>
 
       <a
-        href={`/invitation/wedding/charmTemplate/${clientId}`}
+        href={`/invitation/wedding/charm/${clientId}`}
         className="border border-[#f5eee3] px-4 py-2 rounded hover:bg-[#f5eee3] hover:text-[#37585c] transition"
       >
         Переглянути запрошення
