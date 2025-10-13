@@ -40,7 +40,7 @@ export default function Countdown({ date, text }: CountdownProps) {
   return (
     <section
       id="сountdown"
-      className="bg-[#37585c] text-[#f5eee3] py-16 md:py-24 text-center overflow-hidden scroll-mt-20"
+      className="bg-[#37585c] text-[#f5eee3] py-16 md:py-24 text-center overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-4">
         {/* Верхня декоративна іконка */}
@@ -81,7 +81,7 @@ export default function Countdown({ date, text }: CountdownProps) {
 
         {/* Заголовок */}
         <motion.h2
-          className="text-2xl md:text-4xl font-semibold mb-6 leading-snug"
+          className="text-2xl md:text-4xl mb-6 leading-snug"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}

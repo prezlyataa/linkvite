@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Countdown from "./components/Countdown";
+import Details from "./components/Details";
 import "../../../../../styles/global.css";
 
 async function getClientData() {
@@ -46,6 +47,10 @@ export default async function CharmTemplate() {
         buttonText={data.hero.buttonText}
       />
       <Countdown {...data.countdown} />
+      <Details
+        restaurantImage={data.banquet.restaurantImage}
+        churchImage={data.ceremony.churchImage}
+      />
     </main>
   );
 }

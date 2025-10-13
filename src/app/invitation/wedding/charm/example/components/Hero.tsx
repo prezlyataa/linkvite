@@ -62,7 +62,7 @@ export default function Hero({ image, names, date, buttonText }: HeroProps) {
         <motion.button
           onClick={() =>
             document
-              .getElementById("сountdown")
+              .getElementById("details")
               ?.scrollIntoView({ behavior: "smooth" })
           }
           className="inline-block mt-8 border border-[#37585c] cursor-pointer text-[#37585c] px-5 py-2 rounded hover:bg-[#37585c] hover:text-[#f5eee3] transition-colors duration-300 ease-in-out"

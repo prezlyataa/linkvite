@@ -22,6 +22,7 @@
   },
 
   "ceremony": {
+    "churchImage": "/images/wedding/charm/example/churchImage.jpg",
     "title": "Вінчання",
     "date": "27 вересня 2025",
     "time": "15:00",
@@ -37,6 +38,7 @@
   },
 
   "banquet": {
+    "restaurantImage": "/images/wedding/charm/example/restaurant.jpg",
     "title": "Бенкет",
     "date": "27 вересня 2025",
     "time": "17:00",
