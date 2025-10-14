@@ -86,7 +86,7 @@ export default function Countdown({ date, text }: CountdownProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Наша церемонія розпочнеться через:
+          Наша церемонія розпочнеться через
         </motion.h2>
 
         {/* Декоративна гілочка під заголовком */}

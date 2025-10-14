@@ -27,9 +27,15 @@ export default function Details({
       <div className="max-w-6xl mx-auto space-y-12">
         {/* === Заголовок === */}
         <div className="text-center">
-          <h2 className="text-2xl md:text-4xl mb-6 text-[#37585c]">
+          {/* Заголовок */}
+          <motion.h2
+            className="text-2xl md:text-4xl mb-6 leading-snug"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
             Деталі святкування
-          </h2>
+          </motion.h2>
 
           <motion.svg
             fill="#37585c"
