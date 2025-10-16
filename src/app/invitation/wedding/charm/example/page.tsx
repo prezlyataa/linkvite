@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import Countdown from "./components/Countdown";
 import Details from "./components/Details";
 import Program from "./components/Program";
+import DressCode from "./components/DressCode";
 import "../../../../../styles/global.css";
 
 async function getClientData() {
@@ -53,6 +54,7 @@ export default async function CharmTemplate() {
         churchImage={data.ceremony.churchImage}
       />
       <Program title={data.program.title} items={data.program.items} />
+      <DressCode />
     </main>
   );
 }
