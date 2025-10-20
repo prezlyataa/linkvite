@@ -7,7 +7,9 @@ import Countdown from "./components/Countdown";
 import Details from "./components/Details";
 import Program from "./components/Program";
 import DressCode from "./components/DressCode";
-import GiftsSection from "./components/GiftsSection";
+import Gifts from "./components/Gifts";
+import LoveStory from "./components/LoveStory";
+import Footer from "./components/Footer";
 import "../../../../../styles/global.css";
 
 async function getClientData() {
@@ -56,7 +58,9 @@ export default async function CharmTemplate() {
       />
       <Program title={data.program.title} items={data.program.items} />
       <DressCode />
-      <GiftsSection />
+      <Gifts />
+      <LoveStory gallery={data.loveStory.gallery} />
+      <Footer />
     </main>
   );
 }

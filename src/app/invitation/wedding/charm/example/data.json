@@ -5,7 +5,7 @@
   "slug": "example",
 
   "hero": {
-    "image": "/images/wedding/charm/example/charm-hero-background.jpeg",
+    "image": "/images/wedding/charm/example/lovestory-photo-4.jpg",
     "names": "Дмитро & Ілона",
     "date": "27 вересня 2025",
     "buttonText": "Дізнатися більше",
@@ -111,9 +111,11 @@
     "title": "Наша історія кохання",
     "text": "Ми зустрілися в найтепліший осінній день, і відтоді наше життя змінилося назавжди. Цей день ми чекаємо з нетерпінням, щоб поділитися нашим щастям із вами.",
     "gallery": [
-      "/images/wedding/olga-dmytro/story1.jpg",
-      "/images/wedding/olga-dmytro/story2.jpg",
-      "/images/wedding/olga-dmytro/story3.jpg"
+      "/images/wedding/charm/example/lovestory-photo-1.jpg",
+      "/images/wedding/charm/example/lovestory-photo-2.jpg",
+      "/images/wedding/charm/example/lovestory-photo-3.jpg",
+      "/images/wedding/charm/example/lovestory-photo-4.jpg",
+      "/images/wedding/charm/example/lovestory-photo-5.jpg"
     ],
     "quote": "Любов — це не дивитися одне на одного, а разом дивитися в одному напрямку ❤️"
   },

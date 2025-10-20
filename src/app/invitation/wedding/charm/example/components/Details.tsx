@@ -23,7 +23,10 @@ export default function Details({
   restaurantImage,
 }: DetailsProps) {
   return (
-    <section id="details" className="bg-[#f3efe6] py-20 px-6 scroll-mt-20">
+    <section
+      id="details"
+      className="bg-[#f3efe6] text-[#37585c] py-20 px-6 scroll-mt-20"
+    >
       <div className="max-w-6xl mx-auto space-y-12">
         {/* === Заголовок === */}
         <div className="text-center">

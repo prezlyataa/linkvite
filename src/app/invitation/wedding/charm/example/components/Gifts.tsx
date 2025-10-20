@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-export default function GiftsSection() {
+export default function Gifts() {
   return (
     <section className="bg-[#f5eee3] text-[#37585c] py-18 text-center relative overflow-hidden">
       <motion.div
@@ -13,7 +13,7 @@ export default function GiftsSection() {
       >
         {/* Заголовок */}
         <motion.h2
-          className="text-2xl md:text-4xl mb-2 font-serif"
+          className="text-2xl md:text-4xl mb-2"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -45,7 +45,7 @@ export default function GiftsSection() {
         </motion.svg>
         {/* Текст */}
         <motion.p
-          className="text-[#37585c]/80 leading-relaxed text-base md:text-lg mb-10"
+          className="text-[#37585c]/80 leading-relaxed md:text-lg mb-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}

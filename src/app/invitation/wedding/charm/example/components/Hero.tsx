@@ -12,7 +12,7 @@ interface HeroProps {
 export default function Hero({ image, names, date, buttonText }: HeroProps) {
   return (
     <section
-      className="relative h-screen flex items-center justify-center text-center text-[#2e4b4e] overflow-hidden"
+      className="relative h-screen pt-30 flex items-center justify-center text-center text-[#2e4b4e] overflow-hidden"
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
