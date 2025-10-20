@@ -2,35 +2,30 @@
 
 import { motion } from "framer-motion";
 
-export default function DressCode() {
-  const colors = [
-    { hex: "#f5eee3", label: "Пісочний" },
-    { hex: "#d6cfbf", label: "Бежевий" },
-    { hex: "#b9c3b1", label: "Оливковий" },
-    { hex: "#8da098", label: "Сіро-зелений" },
-  ];
-
+export default function GiftsSection() {
   return (
-    <section className="bg-[#37585c] text-[#f5eee3] py-12 text-center overflow-hidden">
+    <section className="bg-[#f5eee3] text-[#37585c] py-18 text-center relative overflow-hidden">
       <motion.div
         className="max-w-3xl mx-auto px-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
+        {/* Заголовок */}
         <motion.h2
-          className="text-2xl md:text-4xl mb-6 leading-snug font-serif"
+          className="text-2xl md:text-4xl mb-2 font-serif"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Дрес-код
+          Подарунки
         </motion.h2>
-        {/* Декоративна гілочка під заголовком */}
+
+        {/* Декоративна гілочка */}
         <motion.svg
-          fill="#d6cfbf"
+          fill="#37585c"
           viewBox="0 0 191.675 191.675"
-          stroke="#d6cfbf"
+          stroke="#37585c"
           stroke-width="0.7667"
           className="w-52 h-22 mx-auto mb-2"
         >
@@ -48,38 +43,16 @@ export default function DressCode() {
             </g>{" "}
           </g>
         </motion.svg>
-        <p className="text-[#f5eee3]/80 text-base md:text-lg mb-10">
-          Ми будемо раді, якщо ви підтримаєте атмосферу нашого свята вбранням у
-          світлих природних тонах.
-        </p>
-        {/* Палітра кольорів */}
-        <div className="flex justify-center flex-wrap gap-6 md:gap-10 mt-8">
-          {colors.map((color, i) => (
-            <motion.div
-              key={color.hex}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="flex flex-col items-center"
-            >
-              <div
-                className="w-20 h-20 md:w-24 md:h-24 rounded-full shadow-md border border-[#f5eee3]/30"
-                style={{ backgroundColor: color.hex }}
-              ></div>
-              <p className="mt-3 text-sm md:text-base text-[#f5eee3]/70">
-                {color.label}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-        {/* Текст з поясненням */}
+        {/* Текст */}
         <motion.p
-          className="italic text-[#f5eee3]/70 mt-12 max-w-md mx-auto"
+          className="text-[#37585c]/80 leading-relaxed text-base md:text-lg mb-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
         >
-          Просимо утриматись від чорного та яскраво-червоного кольорів.
+          Ваші посмішки — найкращий подарунок! 💖 <br />
+          Але якщо бажаєте висловити побажання, ми будемо раді конвертам із
+          теплими словами.
         </motion.p>
       </motion.div>
     </section>

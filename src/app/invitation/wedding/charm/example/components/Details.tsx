@@ -74,7 +74,9 @@ export default function Details({
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="p-10 flex flex-col justify-center"
           >
-            <h3 className="text-3xl text-[#37585c] mb-4">Церемонія Вінчання</h3>
+            <h3 className="text-2xl md:text-4x text-[#37585c] mb-4">
+              Церемонія Вінчання
+            </h3>
             <p className="text-lg text-[#37585c] mb-2">17 жовтня 2025, 15:00</p>
             <p className="text-[#37585c]/80 mb-6 leading-relaxed">
               Вінчання відбудеться у <b>Церкві Святого Архангела Михаїла</b>.
@@ -158,7 +160,9 @@ export default function Details({
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="p-10 flex flex-col justify-center order-1 md:order-2"
           >
-            <h3 className="text-3xl text-[#37585c] mb-4">Святковий Бенкет</h3>
+            <h3 className="text-2xl md:text-4x text-[#37585c] mb-4">
+              Святковий Бенкет
+            </h3>
             <p className="text-lg text-[#37585c] mb-2">17 жовтня 2025, 17:00</p>
             <p className="text-[#37585c]/80 mb-6 leading-relaxed">
               Святковий бенкет відбудеться у ресторані <b>“Villa Verde”</b>.
