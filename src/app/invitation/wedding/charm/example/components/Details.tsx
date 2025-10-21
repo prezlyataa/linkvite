@@ -25,14 +25,13 @@ export default function Details({
   return (
     <section
       id="details"
-      className="bg-[#f3efe6] text-[#37585c] py-20 px-6 scroll-mt-20"
+      className="bg-[var(--charm-cream)] text-[var(--charm-dark)] py-20 px-6 scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto space-y-12">
         {/* === Заголовок === */}
         <div className="text-center">
-          {/* Заголовок */}
           <motion.h2
-            className="text-2xl md:text-4xl mb-6 leading-snug"
+            className="text-2xl md:text-4xl mb-6 leading-snug text-[var(--charm-dark)]"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -41,10 +40,10 @@ export default function Details({
           </motion.h2>
 
           <motion.svg
-            fill="#37585c"
+            fill="var(--charm-dark)"
             viewBox="0 0 191.675 191.675"
-            stroke="#37585c"
-            stroke-width="0.7667"
+            stroke="var(--charm-dark)"
+            strokeWidth="0.77"
             className="w-52 h-22 mx-auto mb-2"
           >
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -65,7 +64,7 @@ export default function Details({
 
         {/* === Блок Вінчання === */}
         <motion.div
-          className="bg-white shadow-md rounded-sm overflow-hidden grid md:grid-cols-2"
+          className="bg-[var(--charm-light)] shadow-md rounded-sm overflow-hidden grid md:grid-cols-2"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -77,11 +76,13 @@ export default function Details({
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="p-10 flex flex-col justify-center"
           >
-            <h3 className="text-2xl md:text-4x text-[#37585c] mb-4">
+            <h3 className="text-2xl md:text-4xl text-[var(--charm-dark)] mb-4">
               Церемонія Вінчання
             </h3>
-            <p className="text-lg text-[#37585c] mb-2">17 жовтня 2025, 15:00</p>
-            <p className="text-[#37585c]/80 mb-6 leading-relaxed">
+            <p className="text-lg text-[var(--charm-dark)] mb-2">
+              17 жовтня 2025, 15:00
+            </p>
+            <p className="text-[var(--charm-dark)]/80 mb-6 leading-relaxed">
               Вінчання відбудеться у <b>Церкві Святого Архангела Михаїла</b>.
               Просимо прибути завчасно — поруч є зручна парковка.
             </p>
@@ -97,7 +98,7 @@ export default function Details({
                     "_blank"
                   )
                 }
-                className="bg-[#37585c] text-[#f3efe6] px-6 py-3 rounded-sm hover:bg-[#446d72] cursor-pointer transition-all duration-300 ease-in-out"
+                className="bg-[var(--charm-dark)] text-[var(--charm-light)] px-6 py-3 rounded-sm hover:bg-[var(--charm-accent)] hover:text-[var(--charm-dark)] cursor-pointer transition-all duration-300 ease-in-out"
               >
                 Прокласти маршрут
               </motion.button>
@@ -111,7 +112,7 @@ export default function Details({
                     "_blank"
                   )
                 }
-                className="border border-[#37585c] text-[#37585c] px-6 py-3 rounded-sm hover:bg-[#37585c] hover:text-[#f3efe6] cursor-pointer transition-all duration-300 ease-in-out"
+                className="border border-[var(--charm-dark)] text-[var(--charm-dark)] px-6 py-3 rounded-sm hover:bg-[var(--charm-dark)] hover:text-[var(--charm-light)] cursor-pointer transition-all duration-300 ease-in-out"
               >
                 Додати в календар
               </motion.button>
@@ -136,13 +137,13 @@ export default function Details({
 
         {/* === Блок Бенкет === */}
         <motion.div
-          className="bg-white shadow-md rounded-sm overflow-hidden grid md:grid-cols-2"
+          className="bg-[var(--charm-light)] shadow-md rounded-sm overflow-hidden grid md:grid-cols-2"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Зображення (на десктопі — зліва, на мобільному — після тексту) */}
+          {/* Зображення */}
           <motion.div
             variants={fadeLeft}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -163,17 +164,18 @@ export default function Details({
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="p-10 flex flex-col justify-center order-1 md:order-2"
           >
-            <h3 className="text-2xl md:text-4x text-[#37585c] mb-4">
+            <h3 className="text-2xl md:text-4xl text-[var(--charm-dark)] mb-4">
               Святковий Бенкет
             </h3>
-            <p className="text-lg text-[#37585c] mb-2">17 жовтня 2025, 17:00</p>
-            <p className="text-[#37585c]/80 mb-6 leading-relaxed">
+            <p className="text-lg text-[var(--charm-dark)] mb-2">
+              17 жовтня 2025, 17:00
+            </p>
+            <p className="text-[var(--charm-dark)]/80 mb-6 leading-relaxed">
               Святковий бенкет відбудеться у ресторані <b>“Villa Verde”</b>.
               Поруч є стоянка. Буде весело, тож залишайтеся на святковий тост!
               🥂
             </p>
 
-            {/* Кнопки */}
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -184,7 +186,7 @@ export default function Details({
                     "_blank"
                   )
                 }
-                className="bg-[#37585c] text-[#f3efe6] px-6 py-3 rounded-sm hover:bg-[#446d72] cursor-pointer transition-all duration-300 ease-in-out"
+                className="bg-[var(--charm-dark)] text-[var(--charm-light)] hover:text-[var(--charm-dark)] px-6 py-3 rounded-sm hover:bg-[var(--charm-accent)] cursor-pointer transition-all duration-300 ease-in-out"
               >
                 Прокласти маршрут
               </motion.button>
@@ -198,7 +200,7 @@ export default function Details({
                     "_blank"
                   )
                 }
-                className="border border-[#37585c] text-[#37585c] px-6 py-3 rounded-sm hover:bg-[#37585c] hover:text-[#f3efe6] cursor-pointer transition-all duration-300 ease-in-out"
+                className="border border-[var(--charm-dark)] text-[var(--charm-dark)] px-6 py-3 rounded-sm hover:bg-[var(--charm-dark)] hover:text-[var(--charm-light)] cursor-pointer transition-all duration-300 ease-in-out"
               >
                 Додати в календар
               </motion.button>

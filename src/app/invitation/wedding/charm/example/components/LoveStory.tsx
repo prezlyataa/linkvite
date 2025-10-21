@@ -13,7 +13,7 @@ interface LoveStoryProps {
 
 export default function LoveStory({ gallery }: LoveStoryProps) {
   return (
-    <section className="bg-[#37585c] text-[#f5eee3] pt-24 pb-12 px-6 overflow-hidden relative">
+    <section className="bg-[var(--charm-dark)] text-[var(--charm-light)] pt-24 pb-12 px-6 overflow-hidden relative">
       <motion.div
         className="max-w-6xl mx-auto text-center"
         initial={{ opacity: 0, y: 40 }}
@@ -22,13 +22,14 @@ export default function LoveStory({ gallery }: LoveStoryProps) {
       >
         {/* Заголовок */}
         <motion.h2
-          className="text-2xl md:text-4xl mb-6 pb-6 md:pb-5 leading-snug"
+          className="text-2xl md:text-4xl mb-6 pb-6 md:pb-5 leading-snug text-[var(--charm-cream)]"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           Наша історія кохання
         </motion.h2>
+
         {/* Верхня декоративна іконка */}
         <motion.div
           className="flex justify-center mb-8"
@@ -36,14 +37,14 @@ export default function LoveStory({ gallery }: LoveStoryProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="w-16 h-16 bg-[#d6cfbf] text-[#37585c] rounded-full flex items-center justify-center shadow-sm">
+          <div className="w-16 h-16 bg-[var(--charm-accent)] text-[var(--charm-dark)] rounded-full flex items-center justify-center shadow-sm">
             <motion.svg
-              fill="#37585c"
+              fill="var(--charm-dark)"
+              stroke="var(--charm-dark)"
+              strokeWidth="0.659832"
               width="34px"
               height="34px"
               viewBox="0 0 164.958 164.958"
-              stroke="#37585c"
-              stroke-width="0.659832"
             >
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
               <g
@@ -67,7 +68,7 @@ export default function LoveStory({ gallery }: LoveStoryProps) {
 
         {/* Підзаголовок */}
         <motion.p
-          className="text-[#f5eee3]/80 leading-relaxed text-base md:text-lg mb-10 max-w-3xl mx-auto font-light"
+          className="text-[var(--charm-light)]/80 leading-relaxed text-base md:text-lg mb-10 max-w-3xl mx-auto font-light"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -96,7 +97,7 @@ export default function LoveStory({ gallery }: LoveStoryProps) {
             {gallery.map((src, index) => (
               <SwiperSlide key={index}>
                 <motion.div
-                  className="flex justify-center items-center bg-[#2f4b4f]"
+                  className="flex justify-center items-center bg-[var(--charm-green-dark)]"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1 }}
@@ -116,7 +117,7 @@ export default function LoveStory({ gallery }: LoveStoryProps) {
 
         {/* Цитата */}
         <motion.blockquote
-          className="italic text-[#f5eee3]/70 mt-12 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-light"
+          className="italic text-[var(--charm-light)]/70 mt-12 text-base md:text-lg max-w-3xl mx-auto leading-relaxed font-light"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 1 }}

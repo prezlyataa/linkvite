@@ -7,3 +7,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  /* wedding charm template */
+  --charm-dark: #37585c;
+  --charm-light: #f5eee3;
+  --charm-accent: #d6cfbf;
+  --charm-cream: #efe8dc;
+  --charm-gold: #d4c5a5;
+  --charm-green-dark: #37585c;
+}

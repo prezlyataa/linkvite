@@ -14,7 +14,7 @@ interface ProgramProps {
 
 export default function Program({ title, items }: ProgramProps) {
   return (
-    <section className="relative bg-[#37585c] py-24 px-6 text-[#f5eee3] overflow-hidden">
+    <section className="relative bg-[var(--charm-dark)] py-24 px-6 text-[var(--charm-light)] overflow-hidden">
       <div className="max-w-3xl mx-auto text-center">
         {/* Верхня декоративна іконка */}
         <motion.div
@@ -23,14 +23,14 @@ export default function Program({ title, items }: ProgramProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="w-16 h-16 bg-[#d6cfbf] text-[#37585c] rounded-full flex items-center justify-center shadow-sm">
+          <div className="w-16 h-16 bg-[var(--charm-accent)] text-[var(--charm-dark)] rounded-full flex items-center justify-center shadow-sm">
             <motion.svg
-              fill="#37585c"
+              fill="var(--charm-dark)"
+              stroke="var(--charm-dark)"
+              strokeWidth="0.659832"
               width="34px"
               height="34px"
               viewBox="0 0 164.958 164.958"
-              stroke="#37585c"
-              stroke-width="0.659832"
             >
               <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
               <g
@@ -54,7 +54,7 @@ export default function Program({ title, items }: ProgramProps) {
 
         {/* Заголовок */}
         <motion.h2
-          className="text-2xl md:text-4xl mb-6 pb-6 md:pb-10 leading-snug"
+          className="text-2xl md:text-4xl mb-6 pb-6 md:pb-10 leading-snug text-[var(--charm-cream)]"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -76,12 +76,12 @@ export default function Program({ title, items }: ProgramProps) {
                 x: 0,
               }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative flex items-center justify-between gap-4 md:gap-6 bg-[#d6cfbf]/95 text-[#2e4b4e] rounded-md shadow-sm border border-[#f5eee3]/20 px-6 md:px-8 py-4 md:py-5 backdrop-blur-sm"
+              className="relative flex items-center justify-between gap-4 md:gap-6 bg-[var(--charm-accent)]/95 text-[var(--charm-dark)] rounded-md shadow-sm border border-[var(--charm-light)]/20 px-6 md:px-8 py-4 md:py-5 backdrop-blur-sm"
             >
               <span className="text-lg md:text-xl font-medium min-w-[65px] text-right">
                 {item.time}
               </span>
-              <div className="h-[1px] flex-1 bg-[#2e4b4e]/30"></div>
+              <div className="h-[1px] flex-1 bg-[var(--charm-dark)]/30"></div>
               <span className="text-lg md:text-xl font-light whitespace-nowrap">
                 {item.event}
               </span>

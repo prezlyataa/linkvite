@@ -1,15 +1,17 @@
 "use client";
+
 import { useState } from "react";
 
 const Logo = ({ names }: { names: string }) => (
   <div className="flex flex-col items-center text-center space-y-1">
     <svg
-      fill="#D4C5A5"
+      fill="currentColor"
+      stroke="currentColor"
+      strokeWidth="1.328"
       width="70px"
       height="40px"
       viewBox="1 50 220 70"
-      stroke="#D4C5A5"
-      stroke-width="1.328052"
+      className="text-[var(--charm-gold)]"
     >
       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
       <g
@@ -26,9 +28,13 @@ const Logo = ({ names }: { names: string }) => (
       </g>
     </svg>
 
-    <span className={`text-base tracking-wide text-[#efe8dc]`}>{names}</span>
+    <span className="text-base tracking-wide text-[var(--charm-cream)]">
+      {names}
+    </span>
 
-    <span className="text-gray-200 text-xs">Ми одружуємось!</span>
+    <span className="text-[var(--charm-light)]/80 text-xs">
+      Ми одружуємось!
+    </span>
   </div>
 );
 
@@ -46,17 +52,17 @@ export default function Header() {
   return (
     <>
       {/* Fixed Header */}
-      <header className="fixed top-0 left-0 w-full bg-[#37585c] z-50">
+      <header className="fixed top-0 left-0 w-full bg-[var(--charm-dark)] z-50">
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           <Logo names="Дмитро & Ілона" />
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex text-[#f5eee3] space-x-8 font-light text-sm">
+          <nav className="hidden md:flex text-[var(--charm-light)] space-x-8 font-light text-sm">
             {menuItems.map(({ label, href }) => (
               <a
                 key={href}
                 href={href}
-                className={`text-#efe8dc hover:text-[#d6cfbf] transition`}
+                className="text-[var(--charm-cream)] hover:text-[var(--charm-accent)] transition"
               >
                 {label}
               </a>
@@ -71,17 +77,17 @@ export default function Header() {
           >
             <div className="flex flex-col space-y-1">
               <span
-                className={`block w-6 h-0.5 bg-white transform transition duration-300 ${
+                className={`block w-6 h-0.5 bg-[var(--charm-light)] transform transition duration-300 ${
                   isOpen ? "rotate-45 translate-y-1.5" : ""
                 }`}
               />
               <span
-                className={`block w-6 h-0.5 bg-white transition duration-300 ${
+                className={`block w-6 h-0.5 bg-[var(--charm-light)] transition duration-300 ${
                   isOpen ? "opacity-0" : ""
                 }`}
               />
               <span
-                className={`block w-6 h-0.5 bg-white transform transition duration-300 ${
+                className={`block w-6 h-0.5 bg-[var(--charm-light)] transform transition duration-300 ${
                   isOpen ? "-rotate-45 -translate-y-1.5" : ""
                 }`}
               />
@@ -92,8 +98,7 @@ export default function Header() {
 
       {/* Mobile Fullscreen Menu */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-[#37585c] flex flex-col z-40 animate-fade-in">
-          {/* Top row */}
+        <div className="md:hidden fixed inset-0 bg-[var(--charm-dark)] flex flex-col z-40 animate-fade-in">
           <div className="flex items-center justify-between px-6 py-4">
             <Logo names="Дмитро & Ілона" />
             <button
@@ -101,19 +106,18 @@ export default function Header() {
               onClick={() => setIsOpen(false)}
               className="relative w-6 h-6 cursor-pointer"
             >
-              <span className="absolute left-0 top-1/2 w-6 h-0.5 bg-white rotate-45"></span>
-              <span className="absolute left-0 top-1/2 w-6 h-0.5 bg-white -rotate-45"></span>
+              <span className="absolute left-0 top-1/2 w-6 h-0.5 bg-[var(--charm-light)] rotate-45"></span>
+              <span className="absolute left-0 top-1/2 w-6 h-0.5 bg-[var(--charm-light)] -rotate-45"></span>
             </button>
           </div>
 
-          {/* Menu Items */}
-          <nav className="flex flex-col items-center justify-center flex-1 space-y-6 text-[#f5eee3] font-light text-lg">
+          <nav className="flex flex-col items-center justify-center flex-1 space-y-6 text-[var(--charm-light)] font-light text-lg">
             {menuItems.map(({ label, href }) => (
               <a
                 key={href}
                 href={href}
                 onClick={() => setIsOpen(false)}
-                className={`text-[#efe8dc] hover:text-[#d6cfbf] transition`}
+                className="text-[var(--charm-cream)] hover:text-[var(--charm-accent)] transition"
               >
                 {label}
               </a>

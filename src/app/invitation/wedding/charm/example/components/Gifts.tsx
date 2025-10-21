@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Gifts() {
   return (
-    <section className="bg-[#f5eee3] text-[#37585c] py-18 text-center relative overflow-hidden">
+    <section className="bg-[var(--charm-light)] text-[var(--charm-dark)] py-18 text-center relative overflow-hidden">
       <motion.div
         className="max-w-3xl mx-auto px-6"
         initial={{ opacity: 0, y: 20 }}
@@ -23,10 +23,10 @@ export default function Gifts() {
 
         {/* Декоративна гілочка */}
         <motion.svg
-          fill="#37585c"
+          fill="var(--charm-dark)"
+          stroke="var(--charm-dark)"
+          strokeWidth="0.7667"
           viewBox="0 0 191.675 191.675"
-          stroke="#37585c"
-          stroke-width="0.7667"
           className="w-52 h-22 mx-auto mb-2"
         >
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -43,9 +43,10 @@ export default function Gifts() {
             </g>{" "}
           </g>
         </motion.svg>
+
         {/* Текст */}
         <motion.p
-          className="text-[#37585c]/80 leading-relaxed md:text-lg mb-10"
+          className="text-[var(--charm-dark)]/80 leading-relaxed md:text-lg mb-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
