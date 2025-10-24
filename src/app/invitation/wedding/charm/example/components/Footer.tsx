@@ -1,11 +1,21 @@
 "use client";
 
+import { FooterSection } from "@/types/data";
 import { motion } from "framer-motion";
 import { FaInstagram, FaTelegramPlane } from "react-icons/fa";
 
-export default function Footer() {
+interface FooterProps {
+  footer: FooterSection;
+}
+
+export default function Footer({ footer }: FooterProps) {
+  const { sectionTitle, links, rights } = footer;
+
   return (
-    <footer className="bg-[var(--charm-green-dark)] text-[var(--charm-light)] py-12 px-6 relative overflow-hidden">
+    <footer
+      id="footer"
+      className="bg-[var(--charm-green-dark)] text-[var(--charm-light)] py-12 px-6 relative overflow-hidden scroll-mt-20"
+    >
       {/* Верхня декоративна лінія */}
       <motion.div
         className="absolute top-0 left-0 w-full h-[1px] bg-[var(--charm-light)]/20"
@@ -26,7 +36,7 @@ export default function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Зроблено в Momento
+          {sectionTitle}
         </motion.h3>
 
         {/* Лінки */}
@@ -42,10 +52,10 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="hover:text-[var(--charm-accent)] transition-colors"
           >
-            momento.link
+            {links.website}
           </a>
           <a
-            href="https://instagram.com/"
+            href={links.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--charm-accent)] transition-colors flex items-center gap-2"
@@ -53,7 +63,7 @@ export default function Footer() {
             <FaInstagram /> Instagram
           </a>
           <a
-            href="https://t.me/"
+            href={links.telegram}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--charm-accent)] transition-colors flex items-center gap-2"
@@ -68,7 +78,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          © {new Date().getFullYear()} Momento — усі права захищено
+          © {new Date().getFullYear()} {rights}
         </motion.p>
       </motion.div>
 

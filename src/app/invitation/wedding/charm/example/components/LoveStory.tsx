@@ -3,17 +3,23 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import { LoveStorySection } from "@/types/data";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/pagination";
 
 interface LoveStoryProps {
-  gallery: string[];
+  loveStory: LoveStorySection;
 }
 
-export default function LoveStory({ gallery }: LoveStoryProps) {
+export default function LoveStory({ loveStory }: LoveStoryProps) {
+  const { sectionTitle, text, gallery, quote } = loveStory;
+
   return (
-    <section className="bg-[var(--charm-dark)] text-[var(--charm-light)] pt-24 pb-12 px-6 overflow-hidden relative">
+    <section
+      id="loveStory"
+      className="bg-[var(--charm-dark)] text-[var(--charm-light)] pt-24 pb-12 px-6 overflow-hidden relative scroll-mt-20"
+    >
       <motion.div
         className="max-w-6xl mx-auto text-center"
         initial={{ opacity: 0, y: 40 }}
@@ -27,7 +33,7 @@ export default function LoveStory({ gallery }: LoveStoryProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Наша історія кохання
+          {sectionTitle}
         </motion.h2>
 
         {/* Верхня декоративна іконка */}
@@ -73,9 +79,7 @@ export default function LoveStory({ gallery }: LoveStoryProps) {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          Ми зустрілися випадково, але з першого погляду зрозуміли, що це —
-          доля. Відтоді кожен день наповнений теплом, ніжністю й вірою в
-          справжнє кохання 💕
+          {text}
         </motion.p>
 
         {/* Слайдер */}
@@ -122,8 +126,7 @@ export default function LoveStory({ gallery }: LoveStoryProps) {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 1 }}
         >
-          “Любов — це не дивитися одне на одного, а разом дивитися в одному
-          напрямку ❤️”
+          {quote}
         </motion.blockquote>
       </motion.div>
     </section>

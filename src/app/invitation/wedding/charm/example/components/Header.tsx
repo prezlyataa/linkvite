@@ -1,8 +1,9 @@
 "use client";
 
+import { HeaderSection } from "@/types/data";
 import { useState } from "react";
 
-const Logo = ({ names }: { names: string }) => (
+const Logo = ({ names, slogan }: { names: string; slogan?: string }) => (
   <div className="flex flex-col items-center text-center space-y-1">
     <svg
       fill="currentColor"
@@ -32,29 +33,26 @@ const Logo = ({ names }: { names: string }) => (
       {names}
     </span>
 
-    <span className="text-[var(--charm-light)]/80 text-xs">
-      Ми одружуємось!
-    </span>
+    <span className="text-[var(--charm-light)]/80 text-xs">{slogan}</span>
   </div>
 );
+interface HeaderProps {
+  header: HeaderSection;
+}
 
-export default function Header() {
+export default function Header({ header }: HeaderProps) {
+  const { menuItems, names, slogan } = header;
   const [isOpen, setIsOpen] = useState(false);
-
-  const menuItems = [
-    { label: "Історія Кохання", href: "#story" },
-    { label: "Деталі Весілля", href: "#details" },
-    { label: "Програма Дня", href: "#program" },
-    { label: "Дрес-код", href: "#dresscode" },
-    { label: "Присутність", href: "#rsvp" },
-  ];
 
   return (
     <>
       {/* Fixed Header */}
-      <header className="fixed top-0 left-0 w-full bg-[var(--charm-dark)] z-50">
+      <header
+        id="header"
+        className="fixed top-0 left-0 w-full bg-[var(--charm-dark)] z-50 scroll-mt-20"
+      >
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
-          <Logo names="Дмитро & Ілона" />
+          <Logo names={names} slogan={slogan} />
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex text-[var(--charm-light)] space-x-8 font-light text-sm">
@@ -100,7 +98,7 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden fixed inset-0 bg-[var(--charm-dark)] flex flex-col z-40 animate-fade-in">
           <div className="flex items-center justify-between px-6 py-4">
-            <Logo names="Дмитро & Ілона" />
+            <Logo slogan={slogan} names={names} />
             <button
               aria-label="Close menu"
               onClick={() => setIsOpen(false)}

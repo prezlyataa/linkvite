@@ -2,16 +2,30 @@
 
 import { motion } from "framer-motion";
 
-export default function DressCode() {
-  const colors = [
-    { hex: "#f5eee3", label: "Пісочний" },
-    { hex: "#d6cfbf", label: "Бежевий" },
-    { hex: "#b9c3b1", label: "Оливковий" },
-    { hex: "#8da098", label: "Сіро-зелений" },
-  ];
+export interface DressColor {
+  hex: string;
+  label: string;
+}
+
+export interface DressCodeSection {
+  sectionTitle: string;
+  description: string;
+  additionalInfo?: string; // optional — sometimes may not exist
+  colors: DressColor[];
+}
+
+interface DressCodeProps {
+  dressCode: DressCodeSection;
+}
+
+export default function DressCode({ dressCode }: DressCodeProps) {
+  const { sectionTitle, description, additionalInfo, colors } = dressCode;
 
   return (
-    <section className="bg-[var(--charm-dark)] text-[var(--charm-light)] py-16 text-center overflow-hidden">
+    <section
+      id="dressCode"
+      className="bg-[var(--charm-dark)] text-[var(--charm-light)] py-16 text-center overflow-hidden scroll-mt-20"
+    >
       <motion.div
         className="max-w-3xl mx-auto px-6"
         initial={{ opacity: 0, y: 20 }}
@@ -25,7 +39,7 @@ export default function DressCode() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Дрес-код
+          {sectionTitle}
         </motion.h2>
 
         {/* Декоративна гілочка */}
@@ -53,8 +67,7 @@ export default function DressCode() {
 
         {/* Опис */}
         <p className="text-[var(--charm-light)]/80 text-base md:text-lg mb-10">
-          Ми будемо раді, якщо ви підтримаєте атмосферу нашого свята вбранням у
-          світлих природних тонах.
+          {description}
         </p>
 
         {/* Палітра кольорів */}
@@ -85,7 +98,7 @@ export default function DressCode() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
         >
-          Просимо утриматись від чорного та яскраво-червоного кольорів.
+          {additionalInfo}
         </motion.p>
       </motion.div>
     </section>

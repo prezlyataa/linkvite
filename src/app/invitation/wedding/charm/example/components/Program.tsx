@@ -1,20 +1,20 @@
 "use client";
 
+import { ProgramSection } from "@/types/data";
 import { motion } from "framer-motion";
 
-interface ProgramItem {
-  time: string;
-  event: string;
-}
-
 interface ProgramProps {
-  title: string;
-  items: ProgramItem[];
+  program: ProgramSection;
 }
 
-export default function Program({ title, items }: ProgramProps) {
+export default function Program({ program }: ProgramProps) {
+  const { sectionTitle, items } = program;
+
   return (
-    <section className="relative bg-[var(--charm-dark)] py-24 px-6 text-[var(--charm-light)] overflow-hidden">
+    <section
+      id="program"
+      className="relative bg-[var(--charm-dark)] py-24 px-6 text-[var(--charm-light)] overflow-hidden scroll-mt-20"
+    >
       <div className="max-w-3xl mx-auto text-center">
         {/* Верхня декоративна іконка */}
         <motion.div
@@ -59,7 +59,7 @@ export default function Program({ title, items }: ProgramProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          {title}
+          {sectionTitle}
         </motion.h2>
 
         {/* Події */}

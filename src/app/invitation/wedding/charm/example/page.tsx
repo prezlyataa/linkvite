@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import type { Metadata } from "next";
+
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Countdown from "./components/Countdown";
@@ -10,57 +11,52 @@ import DressCode from "./components/DressCode";
 import Gifts from "./components/Gifts";
 import LoveStory from "./components/LoveStory";
 import Footer from "./components/Footer";
+
 import "../../../../../styles/global.css";
 
-async function getClientData() {
+async function loadWeddingData() {
   const filePath = path.join(
     process.cwd(),
     "src/app/invitation/wedding/charm/example/data.json"
   );
-  const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
-  return data;
+
+  const rawData = await fs.promises.readFile(filePath, "utf8");
+  return JSON.parse(rawData);
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const data = await getClientData();
+  const data = await loadWeddingData();
+  const { names } = data.hero || {};
+
+  const title = names
+    ? `${names} — Весільне запрошення`
+    : "Весільне запрошення";
 
   return {
-    title: data.hero?.names ?? "Весільне запрошення",
+    title,
     description: "Запрошення на весілля",
     openGraph: {
-      title: data.hero?.names ?? "Весільне запрошення",
-      description: "Приєднуйтеся до святкування нашого особливого дня",
+      title,
+      description: "Приєднуйтеся до святкування нашого особливого дня 💍",
     },
-    icons: {
-      icon: "/tab-icon-letter.png",
-    },
+    icons: { icon: "/tab-icon-letter.png" },
   };
 }
 
 export default async function CharmTemplate() {
-  const data = await getClientData();
-
-  console.log("clientData: ", data);
+  const data = await loadWeddingData();
 
   return (
-    <main>
-      <Header />
-      <Hero
-        image={data.hero.image}
-        names={data.hero.names}
-        date={data.hero.date}
-        buttonText={data.hero.buttonText}
-      />
-      <Countdown {...data.countdown} />
-      <Details
-        restaurantImage={data.banquet.restaurantImage}
-        churchImage={data.ceremony.churchImage}
-      />
-      <Program title={data.program.title} items={data.program.items} />
-      <DressCode />
-      <Gifts />
-      <LoveStory gallery={data.loveStory.gallery} />
-      <Footer />
+    <main className="overflow-hidden bg-[var(--charm-bg)] text-[var(--charm-text)]">
+      <Header header={data.header} />
+      <Hero hero={data.hero} />
+      <Countdown countdown={data.countdown} />
+      <Details details={data.details} />
+      <Program program={data.program} />
+      <DressCode dressCode={data.dressCode} />
+      <Gifts gifts={data.gifts} />
+      <LoveStory loveStory={data.loveStory} />
+      <Footer footer={data.footer} />
     </main>
   );
 }

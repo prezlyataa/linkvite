@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { CountdownSection } from "@/types/data";
 
 interface CountdownProps {
-  date: string;
-  text: string;
+  countdown: CountdownSection;
 }
 
-export default function Countdown({ date, text }: CountdownProps) {
+export default function Countdown({ countdown }: CountdownProps) {
+  const { date, sectionTitle, slogan } = countdown;
   const calculateTimeLeft = () => {
     const target = new Date(date).getTime();
     const now = new Date().getTime();
@@ -40,7 +41,7 @@ export default function Countdown({ date, text }: CountdownProps) {
   return (
     <section
       id="countdown"
-      className="bg-[var(--charm-dark)] text-[var(--charm-light)] py-16 md:py-24 text-center overflow-hidden"
+      className="bg-[var(--charm-dark)] text-[var(--charm-light)] py-16 md:py-24 text-center overflow-hidden scroll-mt-20"
     >
       <div className="max-w-4xl mx-auto px-4">
         {/* Верхня іконка */}
@@ -86,7 +87,7 @@ export default function Countdown({ date, text }: CountdownProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Наша церемонія розпочнеться через
+          {sectionTitle}
         </motion.h2>
 
         {/* Декоративна гілочка */}
@@ -142,7 +143,7 @@ export default function Countdown({ date, text }: CountdownProps) {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
         >
-          {text}
+          {slogan}
         </motion.p>
       </div>
     </section>

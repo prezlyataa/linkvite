@@ -1,18 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { HeroSection } from "@/types/data";
 
 interface HeroProps {
-  image: string;
-  names: string;
-  date: string;
-  buttonText: string;
+  hero: HeroSection;
 }
 
-export default function Hero({ image, names, date, buttonText }: HeroProps) {
+export default function Hero({ hero }: HeroProps) {
+  const { image, names, date, buttonText, slogan } = hero;
+
   return (
     <section
-      className="relative h-screen pt-30 flex items-center justify-center text-center text-[var(--charm-dark)] overflow-hidden"
+      id="hero"
+      className="relative h-screen pt-30 flex items-center justify-center text-center text-[var(--charm-dark)] overflow-hidden scroll-mt-20"
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
@@ -30,7 +31,7 @@ export default function Hero({ image, names, date, buttonText }: HeroProps) {
         transition={{ duration: 0.8 }}
       >
         <p className="italic text-lg mb-3 text-[var(--charm-dark)]/70">
-          Ми одружуємось!
+          {slogan}
         </p>
 
         {/* SVG орнамент */}

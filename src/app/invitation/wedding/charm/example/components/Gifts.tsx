@@ -1,10 +1,20 @@
 "use client";
 
+import { GiftsSection } from "@/types/data";
 import { motion } from "framer-motion";
 
-export default function Gifts() {
+interface GiftsProps {
+  gifts: GiftsSection;
+}
+
+export default function Gifts({ gifts }: GiftsProps) {
+  const { sectionTitle, text, additionalInfo } = gifts;
+
   return (
-    <section className="bg-[var(--charm-light)] text-[var(--charm-dark)] py-18 text-center relative overflow-hidden">
+    <section
+      id="gifts"
+      className="bg-[var(--charm-light)] text-[var(--charm-dark)] py-18 text-center relative overflow-hidden scroll-mt-20"
+    >
       <motion.div
         className="max-w-3xl mx-auto px-6"
         initial={{ opacity: 0, y: 20 }}
@@ -18,7 +28,7 @@ export default function Gifts() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Подарунки
+          {sectionTitle}
         </motion.h2>
 
         {/* Декоративна гілочка */}
@@ -51,9 +61,8 @@ export default function Gifts() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          Ваші посмішки — найкращий подарунок! 💖 <br />
-          Але якщо бажаєте висловити побажання, ми будемо раді конвертам із
-          теплими словами.
+          {text} <br />
+          {additionalInfo}
         </motion.p>
       </motion.div>
     </section>

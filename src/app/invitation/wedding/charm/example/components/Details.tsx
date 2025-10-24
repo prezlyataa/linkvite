@@ -1,5 +1,6 @@
 "use client";
 
+import { DetailsSection } from "@/types/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -14,18 +15,16 @@ const fadeRight = {
 };
 
 interface DetailsProps {
-  restaurantImage: string;
-  churchImage: string;
+  details: DetailsSection;
 }
 
-export default function Details({
-  churchImage,
-  restaurantImage,
-}: DetailsProps) {
+export default function Details({ details }: DetailsProps) {
+  const { sectionTitle, ceremony, banquet } = details;
+
   return (
     <section
       id="details"
-      className="bg-[var(--charm-cream)] text-[var(--charm-dark)] py-20 px-6 scroll-mt-20"
+      className="bg-[var(--charm-cream)] text-[var(--charm-dark)] py-20 px-6 scroll-mt-20 scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto space-y-12">
         {/* === Заголовок === */}
@@ -36,7 +35,7 @@ export default function Details({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Деталі святкування
+            {sectionTitle}
           </motion.h2>
 
           <motion.svg
@@ -77,14 +76,15 @@ export default function Details({
             className="p-10 flex flex-col justify-center"
           >
             <h3 className="text-2xl md:text-4xl text-[var(--charm-dark)] mb-4">
-              Церемонія Вінчання
+              {ceremony.title}
             </h3>
             <p className="text-lg text-[var(--charm-dark)] mb-2">
-              17 жовтня 2025, 15:00
+              {`${ceremony.date}, ${ceremony.time}`}
             </p>
             <p className="text-[var(--charm-dark)]/80 mb-6 leading-relaxed">
-              Вінчання відбудеться у <b>Церкві Святого Архангела Михаїла</b>.
-              Просимо прибути завчасно — поруч є зручна парковка.
+              Вінчання відбудеться у <b>{ceremony.location.name}</b>.
+              <br />
+              {ceremony.additionalInfo}
             </p>
 
             {/* Кнопки */}
@@ -93,28 +93,22 @@ export default function Details({
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() =>
-                  window.open(
-                    "https://www.google.com/maps/dir/?api=1&destination=Церква+Святого+Архангела+Михаїла",
-                    "_blank"
-                  )
+                  window.open(`${ceremony.location.mapUrl}`, "_blank")
                 }
                 className="bg-[var(--charm-dark)] text-[var(--charm-light)] px-6 py-3 rounded-sm hover:bg-[var(--charm-accent)] hover:text-[var(--charm-dark)] cursor-pointer transition-all duration-300 ease-in-out"
               >
-                Прокласти маршрут
+                {ceremony.buttons.map}
               </motion.button>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() =>
-                  window.open(
-                    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Вінчання+Дмитро+і+Ілона&dates=20251017T120000Z/20251017T140000Z&details=Церква+Святого+Архангела+Михаїла",
-                    "_blank"
-                  )
+                  window.open(`${ceremony.buttons.addToCalendar}`, "_blank")
                 }
                 className="border border-[var(--charm-dark)] text-[var(--charm-dark)] px-6 py-3 rounded-sm hover:bg-[var(--charm-dark)] hover:text-[var(--charm-light)] cursor-pointer transition-all duration-300 ease-in-out"
               >
-                Додати в календар
+                {ceremony.buttons.calendar}
               </motion.button>
             </div>
           </motion.div>
@@ -126,7 +120,7 @@ export default function Details({
             className="h-[400px]"
           >
             <Image
-              src={churchImage}
+              src={ceremony.churchImage}
               alt="Церква"
               width={800}
               height={600}
@@ -150,7 +144,7 @@ export default function Details({
             className="h-[400px] order-2 md:order-1"
           >
             <Image
-              src={restaurantImage}
+              src={banquet.restaurantImage}
               alt="Бенкет"
               width={800}
               height={600}
@@ -165,15 +159,16 @@ export default function Details({
             className="p-10 flex flex-col justify-center order-1 md:order-2"
           >
             <h3 className="text-2xl md:text-4xl text-[var(--charm-dark)] mb-4">
-              Святковий Бенкет
+              {banquet.title}
             </h3>
             <p className="text-lg text-[var(--charm-dark)] mb-2">
-              17 жовтня 2025, 17:00
+              {`${banquet.date}, ${banquet.time}`}
             </p>
             <p className="text-[var(--charm-dark)]/80 mb-6 leading-relaxed">
-              Святковий бенкет відбудеться у ресторані <b>“Villa Verde”</b>.
-              Поруч є стоянка. Буде весело, тож залишайтеся на святковий тост!
-              🥂
+              {`${banquet.title}`} відбудеться у ресторані{" "}
+              <b>{banquet.location.name}</b>.
+              <br />
+              {banquet.additionalInfo}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -181,28 +176,22 @@ export default function Details({
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() =>
-                  window.open(
-                    "https://www.google.com/maps/dir/?api=1&destination=Villa+Verde",
-                    "_blank"
-                  )
+                  window.open(`${banquet.location.mapUrl}`, "_blank")
                 }
                 className="bg-[var(--charm-dark)] text-[var(--charm-light)] hover:text-[var(--charm-dark)] px-6 py-3 rounded-sm hover:bg-[var(--charm-accent)] cursor-pointer transition-all duration-300 ease-in-out"
               >
-                Прокласти маршрут
+                {banquet.buttons.map}
               </motion.button>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() =>
-                  window.open(
-                    "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Бенкет+Дмитро+і+Ілона&dates=20251017T140000Z/20251017T170000Z&details=Villa+Verde",
-                    "_blank"
-                  )
+                  window.open(`${banquet.buttons.addToCalendar}`, "_blank")
                 }
                 className="border border-[var(--charm-dark)] text-[var(--charm-dark)] px-6 py-3 rounded-sm hover:bg-[var(--charm-dark)] hover:text-[var(--charm-light)] cursor-pointer transition-all duration-300 ease-in-out"
               >
-                Додати в календар
+                {banquet.buttons.calendar}
               </motion.button>
             </div>
           </motion.div>
