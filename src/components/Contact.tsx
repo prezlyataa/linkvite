@@ -15,7 +15,7 @@ export function Contact() {
           Instagram
         </a>
       </p>
-      <p>Email: info@momento.link</p>
+      <p>Email: info@Linkvite.io</p>
     </section>
   );
 }

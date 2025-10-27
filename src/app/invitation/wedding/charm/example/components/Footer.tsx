@@ -47,7 +47,7 @@ export default function Footer({ footer }: FooterProps) {
           transition={{ delay: 0.4 }}
         >
           <a
-            href="https://momento.link"
+            href="https://Linkvite.io"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[var(--charm-accent)] transition-colors"
