@@ -10,6 +10,7 @@
       { "label": "Програма Дня", "href": "#program" },
       { "label": "Дрес-код", "href": "#dressCode" },
       { "label": "Історія Кохання", "href": "#loveStory" }
+      { "label": "Присутність", "href": "#rsvp" }
     ],
     "names": "Дмитро & Ілона",
     "slogan": "Ми одружуємось!"

@@ -32,7 +32,10 @@ export default function RsvpForm({ rsvp }: { rsvp: RsvpSection }) {
 
   if (submitted) {
     return (
-      <section className="bg-[var(--charm-light)] text-[var(--charm-dark)] py-20 px-6 text-center">
+      <section
+        id="rsvp"
+        className="bg-[var(--charm-light)] text-[var(--charm-dark)] py-20 px-6 text-center"
+      >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
