@@ -9,7 +9,7 @@
       { "label": "Деталі Весілля", "href": "#details" },
       { "label": "Програма Дня", "href": "#program" },
       { "label": "Дрес-код", "href": "#dressCode" },
-      { "label": "Історія Кохання", "href": "#loveStory" }
+      { "label": "Історія Кохання", "href": "#loveStory" },
       { "label": "Присутність", "href": "#rsvp" }
     ],
     "names": "Дмитро & Ілона",

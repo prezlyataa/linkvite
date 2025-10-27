@@ -14,7 +14,7 @@ export default function Footer({ footer }: FooterProps) {
   return (
     <footer
       id="footer"
-      className="bg-[var(--charm-green-dark)] text-[var(--charm-light)] py-12 px-6 relative overflow-hidden scroll-mt-20"
+      className="bg-[var(--charm-green-dark)] text-[var(--charm-light)] py-12 px-6 relative overflow-hidden"
     >
       {/* Верхня декоративна лінія */}
       <motion.div
