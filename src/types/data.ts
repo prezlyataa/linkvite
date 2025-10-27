@@ -122,6 +122,43 @@ export interface LoveStorySection {
 }
 
 /**
+ * RSVP SECTION
+ */
+
+export interface RsvpField {
+  label: string;
+  type: "text" | "number" | "textarea" | "radio" | "select";
+  required?: boolean;
+  options?: string[];
+  googleEntryId: string;
+}
+
+export interface GuestFieldGroup {
+  name: RsvpField;
+  age: RsvpField;
+  diet: RsvpField;
+}
+
+export interface RsvpFields {
+  attendance: RsvpField;
+  guests: {
+    label: string;
+    fields: GuestFieldGroup;
+  };
+}
+
+export interface RsvpForm {
+  formAction: string;
+  fields: RsvpFields;
+  submitText: string;
+}
+
+export interface RsvpSection {
+  title: string;
+  text: string;
+  form: RsvpForm;
+}
+/**
  * FOOTER SECTION
  */
 

@@ -10,6 +10,7 @@ import Program from "./components/Program";
 import DressCode from "./components/DressCode";
 import Gifts from "./components/Gifts";
 import LoveStory from "./components/LoveStory";
+import RsvpForm from "./components/RsvpForm";
 import Footer from "./components/Footer";
 
 import "../../../../../styles/global.css";
@@ -56,6 +57,7 @@ export default async function CharmTemplate() {
       <DressCode dressCode={data.dressCode} />
       <Gifts gifts={data.gifts} />
       <LoveStory loveStory={data.loveStory} />
+      <RsvpForm rsvp={data.rsvp} />
       <Footer footer={data.footer} />
     </main>
   );
